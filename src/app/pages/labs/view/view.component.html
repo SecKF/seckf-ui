@@ -1,0 +1,306 @@
+<div class="container-fluid">
+  <app-page-title title="Labs" [breadcrumbItems]="breadCrumbItems"></app-page-title>
+
+  <ul ngbNav title="Checklists expert wizard" 
+  #nav="ngbNav" [activeId]="1" class="nav-tabs nav-tabs-custom mt-3">
+
+   <li [ngbNavItem]="1">
+     <a ngbNavLink title="Red & Blue Labs">Red & Blue Labs</a>
+     <ng-template ngbNavContent>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row mb-2">
+                <div class="col-7">
+                  <div class="search-box mr-2 mb-2 d-inline-block">
+                    <div class="position-relative">
+                      <input class="form-control" [(ngModel)]="queryString" id="search" name="search"
+                        placeholder="Search Lab" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Lab'" />
+                      <i class="bx bx-search-alt search-icon"></i>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Load Spinner -->
+                <ngx-spinner [fullScreen]="true" type="ball-clip-rotate-multiple" size="medium">
+                  <p class="loading">Loading, Please Wait...</p>
+                </ngx-spinner>
+                <div class="col-5">
+                  <div class="float-right">
+                    <div class="form-group">
+                      <select class="custom-select" [(ngModel)]="queryLabel">
+                        <option value="">All labs</option>
+                        <option value="SKF-labs">SKF-labs</option>
+                        <option value="juice-shop">juice-shop</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive mt-3">
+                <table class="table table-centered table-nowrap table-hover">
+                  <thead class="thead-light">
+                    <tr>
+                      <th scope="col" style="width: 50px;">
+                        <div class="text-center">#</div>
+                      </th>
+                      <th scope="col" joyrideStep="nameLabContent" title="Lab Name" [stepContent]="nameLabContent">
+                        <div class="text-center">Name</div>
+                      </th>
+                      <th scope="col" joyrideStep="labelLabContent" title="Lab Label" [stepContent]="labelLabContent">
+                        <div class="text-center">Label</div>
+                      </th>
+                      <th scope="col" joyrideStep="levelLabContent" title="Lab Level" [stepContent]="levelLabContent">
+                        <div class="text-center">Level</div>
+                      </th>
+                      <th *ngIf="kubernetes_enabled == 'True'" scope="col" joyrideStep="statusLabContent" title="Lab Status"
+                        [stepContent]="statusLabContent">
+                        <div class="text-center">Status</div>
+                      </th>
+                      <th scope="col" joyrideStep="writeLabContent" title="Lab Writeup" [stepContent]="writeLabContent">
+                        <div class="text-center">Write-up</div>
+                      </th>
+                      <th *ngIf="kubernetes_enabled == 'True'" scope="col" joyrideStep="actionLabContent" title="Lab deploy"
+                        [stepContent]="actionLabContent">
+                        <div class="text-center">Action</div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    *ngFor="let item of labData.items | stringfilter:queryString | labelfilter:queryLabel; let myIndex = index">
+                    <tr>
+                      <td>
+                        <div class="avatar-xs">
+                          <span class="avatar-title rounded-circle bg-soft-primary text-primary">
+                            <i class="bx bxs-flask"></i>
+                          </span>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="text-center">{{item.title}}</div>
+                      </td>
+                      <td>
+                        <div class="text-center">{{item.label}}</div>
+                      </td>
+                      <td>
+                        <div class="text-center">{{item.level}}</div>
+                      </td>
+                      <td *ngIf="kubernetes_enabled == 'True'">
+                        <div class="text-center" *ngFor="let items of status; let myIndex = index">
+                          <a *ngIf="item.image_tag == items" href="javascript: void(0);"
+                            class="badge badge-success font-size-11 m-1">Lab is Running</a>
+                        </div>
+                      </td>
+                      <td>
+                        <div class="text-center">
+                          <a href="{{item.link}}" rel="noreferrer noopener" target="_blank"><button class="btn-sm btn-primary">Click here</button></a>
+                        </div>
+                      </td>
+                      <td *ngIf="kubernetes_enabled == 'True'">
+                        <ul class="list-inline mb-0 text-center">
+
+                          <li class="list-inline-item" *ngIf="status.includes(item.image_tag); else elseBlock ">
+                            <button class="btn btn-danger btn-sm" id="get-address"
+                              (click)="stopLabFromRunning(item.image_tag, item.id)">Stop</button>
+                          </li>
+                          <ng-template #elseBlock>
+                            <li class="list-inline-item">
+                              <button class="btn btn-success btn-sm" id="get-address"
+                                (click)="getLabAddress(item.image_tag, item.id)">Start</button>
+                            </li>
+                          </ng-template>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </ng-template> 
+      </li>
+<!--
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>Secure code review Labs</a>
+        <ng-template ngbNavContent>
+          <div class="card mt-3 shadow-none">
+            <div class="card-body pt-2">
+              <form>
+                <div class="row">
+                  <div class="col-xl-12">
+                    <div class="form-group mb-2">
+                      <div class="code-review-tabs">
+                        <div class="row">
+                          <div class="col-lg-2">
+                            <h4 class="card-title mb-4">Code Review Labs</h4>
+                            <ul ngbNav #nav="ngbNav" [activeId]="categoryData" class="nav-pills flex-column text-center">
+                              <li *ngFor="let item of categoryData" [ngbNavItem]="item">
+                                <a ngbNavLink (click)="setCategorySelectorLang(item)" class="shadow-sm mb-2">
+                                  <i class="{{item.icon}} font-size-20 d-block check-nav-icon"></i>
+                                  <p title="Code type switcher" class="font-weight-bold mb-1">{{item}}</p>
+                                </a>
+                                <ng-template ngbNavContent>
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <div class="row mb-3">
+                                        <div class="col-sm-9">
+                                          <h4 class="card-title my-3 text-center">{{item}} code review Labs</h4>
+                                        </div>
+                                      </div>
+                                      <pre>
+                                        <code [highlight]="codeDataTest" lineNumbers="True"></code> 
+                                      </pre>
+                                      <div class="code-view-button card-header">
+                                            
+                                        <div class="row">
+                                          <div class="col-sm-8">
+                                            <div class="text-sm-left">
+                                              <b style="color: #8184B2">Select </b> 
+                                              <b>the correct answer below </b>
+                                            </div>
+                                          </div>
+                                          <div class="col-sm-4">
+                                            <div class="text-sm-right avatar-xs">
+                                                <span data-toggle="collapse" (click)="isCollapsed[0] = !isCollapsed[0]" 
+                                                class="bg-soft-primary avatar-title">
+                                                  <i class="fa fa-arrow-down"></i>
+                                                </span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div> 
+                                      <div class="card-body">
+                                        <div class="collapse" id="first" [ngbCollapse]="!isCollapsed[0]">
+                                          <div class="row mt-4">
+                                            <div class="col-sm-12">
+                                              <div class="text-sm-left">
+                                                <div class="row mb-3">
+                                                  <div class="col-sm-12">
+                                                    <div class="col-sm-9">
+
+                                                      <div *ngIf="lab_code_status === false">
+                                                        <i class="fas fa-exclamation-triangle" style="font-size: 55px; color: #8184B2;"> </i>
+                                                        <b class="ml-5" style="color: red">Incorrect, try harder</b>
+                                                        <p class="card-title my-3 text-left">
+                                                          {{lab_code_answer}}
+                                                        </p>
+                                                        <pre>
+                                                          <code [highlight]="lab_code_example" lineNumbers="True"></code> 
+                                                        </pre>
+                                                      </div>
+                                                      <div *ngIf="lab_code_status === true">
+                                                        <i class="fas fa-hat-wizard" style="font-size: 55px; color: #8184B2;"> </i>
+                                                        <b class="ml-5" style="color: green"> Correct, you are a Wizard</b>
+                                                        <p class="card-title my-4 text-left">
+                                                          {{lab_code_answer}}
+                                                        </p>
+                                                        <pre>
+                                                          <code [highlight]="lab_code_example" lineNumbers="True"></code> 
+                                                        </pre>
+                                                      </div>
+                                                    </div>
+
+                                                    <a ngbNavLink (click)="answer_fail()" class="border border-danger mb-2">
+                                                      <i class="{{item.icon}} font-size-20 d-block check-nav-icon"></i>
+                                                      <p title="Code type switcher" class="font-weight-bold mb-1">1. SQL Injection</p>
+                                                    </a>
+                                                    <a ngbNavLink (click)="answer_success()" class="border border-success mb-2">
+                                                      <i class="{{item.icon}} font-size-20 d-block check-nav-icon"></i>
+                                                      <p title="Code type switcher" class="font-weight-bold mb-1">2. CMD Injection</p>
+                                                    </a>
+                                                    <a ngbNavLink (click)="answer_fail()" class="border border-danger mb-2">
+                                                      <i class="{{item.icon}} font-size-20 d-block check-nav-icon"></i>
+                                                      <p title="Code type switcher" class="font-weight-bold mb-1">3. Missing Authorization</p>
+                                                    </a>
+                                                    <a ngbNavLink (click)="answer_success()" class="border border-success mb-2">
+                                                      <i class="{{item.icon}} font-size-20 d-block check-nav-icon"></i>
+                                                      <p title="Code type switcher" class="font-weight-bold mb-1">4. Secret Unicorn</p>
+                                                    </a>                                                  
+                                                  </div>
+                                                </div>
+                                              </div> 
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </ng-template>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="col-lg-10">
+                            <div [ngbNavOutlet]="nav"></div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+          </ng-template>
+        </li>
+-->
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="questionarie"></div>
+
+</div>
+
+  <ng-template #nameLabContent>
+    <div class="card p-0">
+      <div class="card-body text-center px-0 mr-2 ml-2">
+        <p>These are the labs that are available, based on the name you can see what the type of vulnerability is to
+          focus on.
+          Also when deployed the lab you can use the name to jump to the Lab again.</p>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #levelLabContent>
+    <div class="card p-0">
+      <div class="card-body text-center px-0 mr-2 ml-2">
+        <p>The labs have a level on how easy or hard it is to identify the vulnerability and to exploit them. Start with
+          the Level 1 labs first and work your way up.</p>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #writeLabContent>
+    <div class="card p-0">
+      <div class="card-body text-center px-0 mr-2 ml-2">
+        <p>All of the labs have a write-up page that help you step by step how to identify the vulnerability and what
+          steps are needed to exploit them. </p>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #statusLabContent>
+    <div class="card p-0">
+      <div class="card-body text-center px-0 mr-2 ml-2">
+        <p>Here you can keep track of what labs are already deployed and ready to be accessed.</p>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #labelLabContent>
+    <div class="card p-0">
+      <div class="card-body text-center px-0 mr-2 ml-2">
+        <p>This is who provided the Labs, for example SKF-labs or OWASP-Juice Shop</p>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template #actionLabContent>
+    <div class="card p-0">
+      <div class="card-body text-center px-0 mr-2 ml-2">
+        <p>Here you can deploy the labs that where not started yet.</p>
+      </div>
+    </div>
+  </ng-template>

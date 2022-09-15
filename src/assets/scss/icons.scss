@@ -1,0 +1,66 @@
+// Fonts
+
+@font-face {
+  font-family: 'boxicons';
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+  src: url('../fonts/boxicons.eot');
+  src: url('../fonts/boxicons.eot') format('embedded-opentype'),
+  url('../fonts/boxicons.woff2') format('woff2'),
+  url('../fonts/boxicons.woff') format('woff'),
+  url('../fonts/boxicons.ttf') format('truetype'),
+  url('../fonts/boxicons.svg?#boxicons') format('svg');
+}
+
+@font-face {
+  font-family: "dripicons-v2";
+  src:url("../fonts/dripicons-v2.eot");
+  src:url("../fonts/dripicons-v2.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/dripicons-v2.woff") format("woff"),
+  url("../fonts/dripicons-v2.ttf") format("truetype"),
+  url("../fonts/dripicons-v2.svg#dripicons-v2") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Brands';
+  font-style: normal;
+  font-weight: normal;
+  font-display: auto;
+  src: url("../fonts/fa-brands-400.eot");
+  src: url("../fonts/fa-brands-400.eot?#iefix") format("embedded-opentype"), url("../fonts/fa-brands-400.woff2") format("woff2"), url("../fonts/fa-brands-400.woff") format("woff"), url("../fonts/fa-brands-400.ttf") format("truetype"), url("../fonts/fa-brands-400.svg#fontawesome") format("svg"); 
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 400;
+  font-display: auto;
+  src: url("../fonts/fa-regular-400.eot");
+  src: url("../fonts/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("../fonts/fa-regular-400.woff2") format("woff2"), url("../fonts/fa-regular-400.woff") format("woff"), url("../fonts/fa-regular-400.ttf") format("truetype"), url("../fonts/fa-regular-400.svg#fontawesome") format("svg"); 
+}
+
+@font-face {
+  font-family: 'Font Awesome 5 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: auto;
+  src: url("../fonts/fa-solid-900.eot");
+  src: url("../fonts/fa-solid-900.eot?#iefix") format("embedded-opentype"), url("../fonts/fa-solid-900.woff2") format("woff2"), url("../fonts/fa-solid-900.woff") format("woff"), url("../fonts/fa-solid-900.ttf") format("truetype"), url("../fonts/fa-solid-900.svg#fontawesome") format("svg"); 
+}
+
+@font-face {
+  font-family: "Material Design Icons";
+  src: url("../fonts/materialdesignicons-webfont.eot?v=5.0.45");
+  src: url("../fonts/materialdesignicons-webfont.eot?#iefix&v=5.0.45") format("embedded-opentype"), url("../fonts/materialdesignicons-webfont.woff2?v=5.0.45") format("woff2"), url("../fonts/materialdesignicons-webfont.woff?v=5.0.45") format("woff"), url("../fonts/materialdesignicons-webfont.ttf?v=5.0.45") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+
+
+// Plugins
+@import "custom/plugins/icons";
