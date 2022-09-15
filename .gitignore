@@ -3,3 +3,4 @@
 # Jetbrains IDE
 /.idea
 /dist/
+.DS_Store
