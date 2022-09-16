@@ -50,6 +50,9 @@
             ],
             "scripts": [
               "src/assets/esheep/esheep.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "sweetalert2"
             ]
           },
           "configurations": {
