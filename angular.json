@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/seckf-ui",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,12 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              {
+                "glob": "**/*",
+                "input": "src/assets/",
+                "ignore": ["**/*.scss"],
+                "output": "/assets/"
+              }
             ],
             "styles": [
               "src/assets/scss/app.scss",
@@ -72,7 +77,16 @@
                   "maximumError": "10kb"
                 }
               ]
-            }
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            },
+            "defaultConfiguration": "development"
           }
         },
         "serve": {
@@ -83,7 +97,11 @@
           "configurations": {
             "production": {
               "browserTarget": "seckf-ui:build:production"
-            }
+            },
+            "development": {
+              "browserTarget": "seckf-ui:build:development"
+            },
+            "defaultConfiguration": "development"
           }
         },
         "extract-i18n": {
