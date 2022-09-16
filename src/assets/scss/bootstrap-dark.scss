@@ -22,5 +22,5 @@
 @import "custom/components/preloader";
 @import "custom/components/forms";
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
-@import '~ngx-ui-switch/ui-switch.component.scss';
+@import './node_modules/bootstrap/scss/bootstrap';
+@import './node_modules/ngx-ui-switch/ui-switch.component.scss';
