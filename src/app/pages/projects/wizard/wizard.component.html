@@ -173,7 +173,7 @@
                       </div> 
                     <!-- <div class="dropdown-divider"></div> -->
                     </div>
-                    <div class="row mb-5" *ngIf="selected == 'old'">
+                    <div class="row mb-5" *ngIf="selected === 'old'">
                       <label class="col-sm-2 col-form-label" for="old_quest">Sprint Name</label>
                       <div class="col-sm-10">
                         <select class="form-control" name="old_quest" id="old_quest" data-live-search="true" #old
@@ -185,7 +185,7 @@
                       </div>
                     </div>
 
-                    <div *ngIf="selected == 'new'">
+                    <div *ngIf="selected === 'new'">
                       <form [formGroup]="newSprintForm">
                         <div class="row mb-3">
                           <label class="col-sm-2 col-form-label" for="name">Sprint Name</label>

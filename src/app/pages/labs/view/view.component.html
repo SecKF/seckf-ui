@@ -54,14 +54,14 @@
                       <th scope="col" joyrideStep="levelLabContent" title="Lab Level" [stepContent]="levelLabContent">
                         <div class="text-center">Level</div>
                       </th>
-                      <th *ngIf="kubernetes_enabled == 'True'" scope="col" joyrideStep="statusLabContent" title="Lab Status"
+                      <th *ngIf="kubernetes_enabled === 'True'" scope="col" joyrideStep="statusLabContent" title="Lab Status"
                         [stepContent]="statusLabContent">
                         <div class="text-center">Status</div>
                       </th>
                       <th scope="col" joyrideStep="writeLabContent" title="Lab Writeup" [stepContent]="writeLabContent">
                         <div class="text-center">Write-up</div>
                       </th>
-                      <th *ngIf="kubernetes_enabled == 'True'" scope="col" joyrideStep="actionLabContent" title="Lab deploy"
+                      <th *ngIf="kubernetes_enabled === 'True'" scope="col" joyrideStep="actionLabContent" title="Lab deploy"
                         [stepContent]="actionLabContent">
                         <div class="text-center">Action</div>
                       </th>
@@ -86,7 +86,7 @@
                       <td>
                         <div class="text-center">{{item.level}}</div>
                       </td>
-                      <td *ngIf="kubernetes_enabled == 'True'">
+                      <td *ngIf="kubernetes_enabled === 'True'">
                         <div class="text-center" *ngFor="let items of status; let myIndex = index">
                           <a *ngIf="item.image_tag == items" href="javascript: void(0);"
                             class="badge badge-success font-size-11 m-1">Lab is Running</a>
@@ -97,7 +97,7 @@
                           <a href="{{item.link}}" rel="noreferrer noopener" target="_blank"><button class="btn-sm btn-primary">Click here</button></a>
                         </div>
                       </td>
-                      <td *ngIf="kubernetes_enabled == 'True'">
+                      <td *ngIf="kubernetes_enabled === 'True'">
                         <ul class="list-inline mb-0 text-center">
 
                           <li class="list-inline-item" *ngIf="status.includes(item.image_tag); else elseBlock ">

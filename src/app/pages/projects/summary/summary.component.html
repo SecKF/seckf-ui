@@ -53,9 +53,9 @@
                     </div>
                     <div class="col-sm-2">
                       <div class="text-right">
-                        <span *ngIf="item.resolved == 'True'"
+                        <span *ngIf="item.resolved === 'True'"
                           class="badge badge-success font-size-11 mt-1 float-left">Resolved</span>
-                        <span *ngIf="item.resolved == 'False'"
+                        <span *ngIf="item.resolved === 'False'"
                           class="badge badge-danger font-size-11 mt-1 float-left">Open</span>
                         <button class="btn-sm btn-primary btn-md ml-1" type="button"
                           (click)="isCollapsed[i] = !isCollapsed[i]" joyrideStep="resultControlKB"
