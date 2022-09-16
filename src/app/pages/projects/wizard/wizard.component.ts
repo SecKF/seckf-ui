@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service';
@@ -27,7 +27,7 @@ export class WizardComponent implements OnInit
   checklistData: any;
   breadCrumbItems: Array<{}>;
   isSubmitted: boolean;
-  newSprintForm: FormGroup;
+  newSprintForm: UntypedFormGroup;
   sprint_id: number;
   sprintStore: any = [];
   routerId;
@@ -38,7 +38,7 @@ export class WizardComponent implements OnInit
     private _questionService: QuestionService,
     private _checklistService: ChecklistService,
     private _sprintService: SprintService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private spinner: NgxSpinnerService,
     private router: Router,
   ) { }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AppSettings } from '../../../global';
 
 import { SprintService } from '../../../core/services/sprint.service';
@@ -24,7 +24,7 @@ export class SummaryComponent implements OnInit
   public id: number;
   public sprintData: any = [];
   public codeData: any = [];
-  public complianceForm: FormGroup;
+  public complianceForm: UntypedFormGroup;
   public routerId;
   public delete: string;
   public priv: string;
@@ -38,7 +38,7 @@ export class SummaryComponent implements OnInit
   }
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private modalService: NgbModal,
     private route: ActivatedRoute,
     private _sprintService: SprintService,

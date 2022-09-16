@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ChecklistService } from '../../../../core/services/checklists.service';
@@ -12,13 +12,13 @@ import { ChecklistService } from '../../../../core/services/checklists.service';
 export class CreateChecklistTypeComponent implements OnInit
 {
   breadCrumbItems: Array<{}>;
-  public checklistForm: FormGroup;
+  public checklistForm: UntypedFormGroup;
   public submit: boolean;
   public formsubmit: boolean;
 
   constructor(
     private _checklistService: ChecklistService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router) { }
 
   ngOnInit(): void

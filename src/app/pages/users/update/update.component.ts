@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, Validators, UntypedFormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-update',
@@ -12,13 +12,13 @@ export class UserUpdateComponent implements OnInit {
   breadCrumbItems: Array<{}>;
 
   // Form Validation
-  validationform: FormGroup;
+  validationform: UntypedFormGroup;
 
   // Form Submission
   submit: boolean;
   formsubmit: boolean;
 
-  constructor( private formBuilder: FormBuilder) { }
+  constructor( private formBuilder: UntypedFormBuilder) { }
 
   ngOnInit(): void {
     this.breadCrumbItems = [{ label: 'Users' }, { label: 'Create', active: true }];

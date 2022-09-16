@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormControl, Validators, UntypedFormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { UserService } from '../../../core/services/user.service';
@@ -14,14 +14,14 @@ export class RegisterComponent implements OnInit
 {
 
   public year: number = new Date().getFullYear();
-  public registerationForm: FormGroup;
+  public registerationForm: UntypedFormGroup;
   public user: Auth;
   public userSubmitted: boolean;
   public successmsg = false;
   public errormsg = false;
 
   constructor(
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private _userService: UserService,
     private router: Router
   ) { }
@@ -43,7 +43,7 @@ export class RegisterComponent implements OnInit
     }, { validators: this.passwordMatchingValidatior });
   }
 
-  passwordMatchingValidatior(fg: FormGroup): Validators
+  passwordMatchingValidatior(fg: UntypedFormGroup): Validators
   {
     return fg.get('password').value === fg.get('repassword').value ? null :
       { notmatched: true };
@@ -86,27 +86,27 @@ export class RegisterComponent implements OnInit
   // ------------------------------------
   get username()
   {
-    return this.registerationForm.get('username') as FormControl;
+    return this.registerationForm.get('username') as UntypedFormControl;
   }
   get email()
   {
-    return this.registerationForm.get('email') as FormControl;
+    return this.registerationForm.get('email') as UntypedFormControl;
   }
   get password()
   {
-    return this.registerationForm.get('password') as FormControl;
+    return this.registerationForm.get('password') as UntypedFormControl;
   }
   get repassword()
   {
-    return this.registerationForm.get('repassword') as FormControl;
+    return this.registerationForm.get('repassword') as UntypedFormControl;
   }
   get user_id()
   {
-    return this.registerationForm.get('user_id') as FormControl;
+    return this.registerationForm.get('user_id') as UntypedFormControl;
   }
   get accessToken()
   {
-    return this.registerationForm.get('accessToken') as FormControl;
+    return this.registerationForm.get('accessToken') as UntypedFormControl;
   }
   // --------------------
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { NgxSpinnerService  } from 'ngx-spinner';
 import { AppSettings } from '../../../global';
 
@@ -23,7 +23,7 @@ export class ViewCodeComponent implements OnInit
   public codeData: any = [];
   public categoryData: any = [];
   public codeExample: any = [];
-  public codeExampleForm: FormGroup;
+  public codeExampleForm: UntypedFormGroup;
   public queryString;
   public catSelector: number;
   public delete: string;

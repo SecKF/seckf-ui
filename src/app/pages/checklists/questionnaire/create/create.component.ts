@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { QuestionService } from '../../../../core/services/question.service'
@@ -14,13 +14,13 @@ export class CreateQuestionnaireComponent implements OnInit
 
 
   breadCrumbItems: Array<{}>;
-  public questionForm: FormGroup;
+  public questionForm: UntypedFormGroup;
   public submit: boolean;
   public formsubmit: boolean;
   public checklist_id = Number(localStorage.getItem("checklist_id"))
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router,
     private _questionService: QuestionService) { }
 

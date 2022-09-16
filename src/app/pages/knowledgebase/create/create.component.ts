@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { KnowledgebaseService } from '../../../core/services/knowledgebase.service';
@@ -12,13 +12,13 @@ export class CreateComponent implements OnInit
 {
 
   breadCrumbItems: Array<{}>;
-  public knowledgebaseForm: FormGroup;
+  public knowledgebaseForm: UntypedFormGroup;
 
   public submit: boolean;
   public formsubmit: boolean;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router,
     private _knowledgebaseService: KnowledgebaseService
   ) { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { KnowledgebaseService } from '../../../core/services/knowledgebase.service';
@@ -14,7 +14,7 @@ export class UpdateComponent implements OnInit
   public id: number;
   private sub: any;
   public breadCrumbItems: Array<{}>;
-  public knowledgebaseForm: FormGroup;
+  public knowledgebaseForm: UntypedFormGroup;
   public knowledgebaseItem: any = [];
 
   // Form Submission
@@ -26,7 +26,7 @@ export class UpdateComponent implements OnInit
   }
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private route: ActivatedRoute,
     private _knowledgebaseService: KnowledgebaseService,
     private router: Router) { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, Validators, UntypedFormGroup } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { KnowledgebaseService } from '../../../core/services/knowledgebase.service'
@@ -16,8 +16,8 @@ export class UpdateRequirementComponent implements OnInit
 
 
   public breadCrumbItems: Array<{}>;
-  public validationform: FormGroup;
-  public typeValidationForm: FormGroup;
+  public validationform: UntypedFormGroup;
+  public typeValidationForm: UntypedFormGroup;
   public submit: boolean;
   public id: number;
   private sub: any;
@@ -33,7 +33,7 @@ export class UpdateRequirementComponent implements OnInit
     private _knowledgebaseSerice: KnowledgebaseService,
     private _questionService: QuestionService,
     private _checklistService: ChecklistService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router,
     private route: ActivatedRoute,
   ) { }

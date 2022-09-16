@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+import { UntypedFormBuilder, Validators, UntypedFormGroup, UntypedFormControl } from '@angular/forms';
 import { UserService } from '../../../core/services/user.service';
 import { createUser } from 'src/app/core/models/user-create.model';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -17,7 +17,7 @@ export class UserCreateComponent implements OnInit
   breadCrumbItems: Array<{}>;
 
   // Form Validation
-  public userForm: FormGroup;
+  public userForm: UntypedFormGroup;
 
   // Form Submission
   public submit: boolean;
@@ -27,7 +27,7 @@ export class UserCreateComponent implements OnInit
   public userD: any = [];
 
   constructor( 
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private _userService: UserService,
     private router: Router,
   ) { }
@@ -93,10 +93,10 @@ export class UserCreateComponent implements OnInit
   // ------------------------------------
   get privilege_id()
   {
-    return this.userForm.get('privilege_id') as FormControl;
+    return this.userForm.get('privilege_id') as UntypedFormControl;
   }
   get email()
   {
-    return this.userForm.get('email') as FormControl;
+    return this.userForm.get('email') as UntypedFormControl;
   }
 }

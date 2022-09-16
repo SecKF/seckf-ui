@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ProjectService } from '../../../core/services/project.service';
@@ -14,14 +14,14 @@ export class ProjectCreateComponent implements OnInit
 {
   // bread crumb items
   breadCrumbItems: Array<{}>;
-  public projectForm: FormGroup;
+  public projectForm: UntypedFormGroup;
 
   // Form Submission
   public submit: boolean;
   public formsubmit: boolean;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router,
     private _projectService: ProjectService,
   ) { }

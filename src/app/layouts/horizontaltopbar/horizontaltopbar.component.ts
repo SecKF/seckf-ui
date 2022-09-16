@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, Inject } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { JoyrideService } from 'ngx-joyride';
 import { ThemeService } from '../../core/services/theme.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { AppSettings } from '../../global';
 import { DOCUMENT } from '@angular/common';
 
@@ -33,7 +33,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   public routeUrl: any;
   public themeName: string;
   public search: string;
-  public searchForm: FormGroup;
+  public searchForm: UntypedFormGroup;
   public priv: string = "";
   
   // eslint-disable-next-line max-len
@@ -44,7 +44,7 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
     private _checklistCategoryService: ChecklistCategoryService,
     private readonly joyride: JoyrideService,
     private themeService: ThemeService,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
   ) {}
 
   

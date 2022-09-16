@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ProjectService } from '../../../core/services/project.service';
@@ -14,7 +14,7 @@ export class ProjectUpdateComponent implements OnInit
   breadCrumbItems: Array<{}>;
   id: number;
   private sub: any;
-  public projectForm: FormGroup;
+  public projectForm: UntypedFormGroup;
   public projectItem: any;
 
   // Form Submission
@@ -24,7 +24,7 @@ export class ProjectUpdateComponent implements OnInit
   get formControls() { return this.projectForm.controls; }
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private route: ActivatedRoute,
     private _projectService: ProjectService,
     private router: Router

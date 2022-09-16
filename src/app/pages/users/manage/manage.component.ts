@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { UntypedFormBuilder, Validators, UntypedFormGroup } from '@angular/forms';
 import { NgxSpinnerService } from 'ngx-spinner';
 
 import { UserService } from '../../../core/services/user.service';
@@ -19,7 +19,7 @@ export class ManageComponent implements OnInit
   public grant: string;
 
   // Form Validation
-  validationform: FormGroup;
+  validationform: UntypedFormGroup;
 
   // Form Submission
   public submit: boolean;
@@ -31,7 +31,7 @@ export class ManageComponent implements OnInit
 
   constructor(
     private modalService: NgbModal,
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private _userService: UserService,
     private spinner: NgxSpinnerService,
   ) { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { ChecklistCategoryService } from '../../../core/services/checklist_category.service'
@@ -14,14 +14,14 @@ export class CreateCategoryComponent implements OnInit
 
   // bread crumb items
   breadCrumbItems: Array<{}>;
-  public validationform: FormGroup;
+  public validationform: UntypedFormGroup;
   public isSubmitted: boolean;
 
   // Form Submission
   submit: boolean;
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private router: Router,
     private _checklistCategoryService: ChecklistCategoryService) { }
 

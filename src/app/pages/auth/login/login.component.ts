@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { AuthService } from '../../../core/services/auth.service';
 import { environment } from 'src/environments/environment';
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit
 
     year: number = new Date().getFullYear();
     public isSubmitted: boolean;
-    public loginForm: FormGroup;
+    public loginForm: UntypedFormGroup;
     public skip: boolean;
     public token: any;
     public errormsg = false;
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit
         // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
         private _authService: AuthService,
         private router: Router,
-        private formBuilder: FormBuilder) { }
+        private formBuilder: UntypedFormBuilder) { }
 
     ngOnInit()
     {

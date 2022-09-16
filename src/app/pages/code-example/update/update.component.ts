@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { CodeExamplesService } from '../../../core/services/code-examples.service';
@@ -14,14 +14,14 @@ export class UpdateCodeComponent implements OnInit
   id: number;
   private sub: any;
   breadCrumbItems: Array<{}>;
-  public codeExampleForm: FormGroup;
+  public codeExampleForm: UntypedFormGroup;
   public codeExampleItem: any = [];
   public isSubmitted: boolean;
 
   get formControls() { return this.codeExampleForm.controls; }
 
   constructor(
-    private formBuilder: FormBuilder,
+    private formBuilder: UntypedFormBuilder,
     private route: ActivatedRoute,
     private _codeExamplesService: CodeExamplesService,
     private router: Router) { }
