@@ -94,16 +94,12 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "seckf-ui:build"
+            "browserTarget": "seckf-ui:build:development"
           },
           "configurations": {
             "production": {
               "browserTarget": "seckf-ui:build:production"
-            },
-            "development": {
-              "browserTarget": "seckf-ui:build:development"
-            },
-            "defaultConfiguration": "development"
+            }
           }
         },
         "extract-i18n": {
