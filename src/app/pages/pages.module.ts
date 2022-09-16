@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ArchwizardModule } from 'angular-archwizard';
 import { UIModule } from '../shared/ui/ui.module';
 
-// tslint:disable-next-line: import-spacing
+// eslint-disable-next-line
 import
 {
   NgbNavModule, NgbDropdownModule, NgbModalModule,

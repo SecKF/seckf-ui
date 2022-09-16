@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit
     public loginMethod = environment.AUTH_METHOD;
 
     constructor(
-        // tslint:disable-next-line: variable-name
+        // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
         private _authService: AuthService,
         private router: Router,
         private formBuilder: FormBuilder) { }
@@ -68,7 +68,7 @@ export class LoginComponent implements OnInit
                 var priv = values['privilege'];
                 sessionStorage.setItem('privilege', priv);
                 sessionStorage.setItem('Authorization', token['Authorization token']);
-                // tslint:disable-next-line: no-string-literal
+                // eslint-disable-next-line @typescript-eslint/dot-notation
                 sessionStorage.setItem('user', token['username']);
                 window.location.assign("/dashboard");
             }
@@ -91,7 +91,7 @@ export class LoginComponent implements OnInit
                     var priv = values['privilege'];
                     sessionStorage.setItem('privilege', priv);
                     sessionStorage.setItem('Authorization', token['Authorization token']);
-                    // tslint:disable-next-line: no-string-literal
+                    // eslint-disable-next-line @typescript-eslint/dot-notation
                     sessionStorage.setItem('user', token['username']);
                     window.location.assign("/dashboard");
                 }

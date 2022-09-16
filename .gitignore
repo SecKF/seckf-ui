@@ -1,6 +1,8 @@
+/.angular/cache
 /node_modules/
 
 # Jetbrains IDE
 /.idea
 /dist/
 .DS_Store
+/.angular/

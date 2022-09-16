@@ -36,11 +36,11 @@ export class HorizontaltopbarComponent implements OnInit, AfterViewInit
   public searchForm: FormGroup;
   public priv: string = "";
   
-  // tslint:disable-next-line: max-line-length
+  // eslint-disable-next-line max-len
   constructor(
     @Inject(DOCUMENT) private document: any,
     private router: Router,
-    // tslint:disable-next-line: variable-name
+    // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
     private _checklistCategoryService: ChecklistCategoryService,
     private readonly joyride: JoyrideService,
     private themeService: ThemeService,

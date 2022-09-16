@@ -14,7 +14,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoaderComponent } from './loader/loader.component';
 
 @NgModule({
-  // tslint:disable-next-line: max-line-length
+  // eslint-disable-next-line max-len
   declarations: [LayoutComponent, HorizontalComponent, HorizontaltopbarComponent, FooterComponent, LoaderComponent],
   imports: [
     CommonModule,

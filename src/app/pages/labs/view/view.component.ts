@@ -39,7 +39,7 @@ export class LabViewComponent implements OnInit
 
   public codeDataTest: any = [];
 
-  // tslint:disable-next-line: variable-name
+  // eslint-disable-next-line @typescript-eslint/naming-convention,no-underscore-dangle,id-blacklist,id-match
   constructor(
     private _labService: LabService,
     private spinner: NgxSpinnerService,
@@ -96,7 +96,7 @@ export class LabViewComponent implements OnInit
   }
 
   // Get Lab Address
-  // tslint:disable-next-line: variable-name
+  // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
   getLabAddress(image_tag, image_id)
   {
     this.spinner.show()

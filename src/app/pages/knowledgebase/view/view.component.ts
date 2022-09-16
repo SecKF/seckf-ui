@@ -79,7 +79,7 @@ export class ViewKnowledebaseComponent implements OnInit
     this.modalService.open(deleteDataModal, { centered: true, size: 'lg' });
   }
 
-  // tslint:disable-next-line: ban-types
+  // eslint-disable-next-line @typescript-eslint/ban-types
   setCategorySelectorId(categoryId: Number)
   {
     localStorage.setItem('categorySelector', categoryId.toString());

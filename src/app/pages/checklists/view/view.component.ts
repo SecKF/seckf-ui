@@ -28,9 +28,9 @@ export class ViewComponent implements OnInit
 
   constructor(
     private modalService: NgbModal,
-    // tslint:disable-next-line: variable-name
+    // eslint-disable-next-line @typescript-eslint/naming-convention,no-underscore-dangle,id-blacklist,id-match
     private _checklistService: ChecklistService,
-    // tslint:disable-next-line: variable-name
+    // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
     private _checklistCategoryService: ChecklistCategoryService,
     private spinner: NgxSpinnerService,
   ) { }
@@ -68,7 +68,7 @@ export class ViewComponent implements OnInit
     return this.loggedinUser;
   }
 
-  // tslint:disable-next-line: ban-types
+  // eslint-disable-next-line @typescript-eslint/ban-types
   setCategorySelectorId(categoryId: Number)
   {
     localStorage.setItem('categorySelector', categoryId.toString());

@@ -24,7 +24,7 @@ export class ChecklistsReadComponent implements OnInit
 
   constructor(
     private modalService: NgbModal,
-    // tslint:disable-next-line: variable-name
+    // eslint-disable-next-line @typescript-eslint/naming-convention,no-underscore-dangle,id-blacklist,id-match
     private _checklistCategoryService: ChecklistService,
     private route: ActivatedRoute,
     public router: Router
@@ -73,7 +73,7 @@ export class ChecklistsReadComponent implements OnInit
   {
     this.modalService.open(centerDataModal, { centered: true, size: 'lg' });
   }
-  // tslint:disable-next-line: variable-name
+  // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
   storeSprintLocalStorage(sprint_id: number)
   {
     //localStorage.setItem('questions', JSON.stringify(form.value));
