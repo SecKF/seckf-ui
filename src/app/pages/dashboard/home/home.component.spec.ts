@@ -1,5 +1,5 @@
 /*
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { JoyrideService } from 'ngx-joyride';
 import { HomeComponent } from './home.component';
 
@@ -9,7 +9,7 @@ describe('HomeComponent', () =>
   let fixture: ComponentFixture<HomeComponent>;
   let joy;
 
-  beforeEach(async(() =>
+  beforeEach(waitForAsync(() =>
   {
     TestBed.configureTestingModule({
       declarations: [HomeComponent, JoyrideService],

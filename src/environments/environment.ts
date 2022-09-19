@@ -3,16 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
-  //DO NOT CHANGE HTTP TO HTTPS MANUALLY SHOULD BE HANDLED BY DEPLOY SCRIPTS
-  API_ENDPOINT: 'http://127.0.0.1:5000',
-  //API_ENDPOINT: 'https://beta.securityknowledgeframework.org',
-  //API_ENDPOINT: 'https://owasp-skf.cloud.tyk.io/api/api',
-  //AUTH_METHOD: 'openidprovider',
-  //AUTH_METHOD: 'skiploginprovider',
-  AUTH_METHOD: 'skfprovider',
-  //True || False -> This affects the way the lab page is shown with deployment buttons
-  KUBERNETES_ENABLED: 'True'
+    production: true,
+    //DO NOT CHANGE HTTP TO HTTPS MANUALLY SHOULD BE HANDLED BY DEPLOY SCRIPTS
+    API_ENDPOINT: 'http://127.0.0.1:5000',
+    //API_ENDPOINT: 'https://beta.securityknowledgeframework.org',
+    //API_ENDPOINT: 'https://owasp-skf.cloud.tyk.io/api/api',
+    //AUTH_METHOD: 'openidprovider',
+    //AUTH_METHOD: 'skiploginprovider',
+    AUTH_METHOD: 'skfprovider',
+    //True || False -> This affects the way the lab page is shown with deployment buttons
+    KUBERNETES_ENABLED: 'True'
 };
 
 /*

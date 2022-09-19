@@ -1,17 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
-import { AuthService } from '../../../core/services/auth.service';
-import { environment } from 'src/environments/environment';
+import {AuthService} from '../../../core/services/auth.service';
+import {environment} from 'src/environments/environment';
+
 declare const eSheep: any;
 
 
-
-@Component({ templateUrl: 'login.component.html' })
-export class LoginComponent implements OnInit
-{
+@Component({templateUrl: 'login.component.html'})
+export class LoginComponent implements OnInit {
 
     year: number = new Date().getFullYear();
     public isSubmitted: boolean;
@@ -26,10 +24,10 @@ export class LoginComponent implements OnInit
         // eslint-disable-next-line @typescript-eslint/naming-convention, no-underscore-dangle, id-blacklist, id-match
         private _authService: AuthService,
         private router: Router,
-        private formBuilder: UntypedFormBuilder) { }
+        private formBuilder: UntypedFormBuilder) {
+    }
 
-    ngOnInit()
-    {
+    ngOnInit() {
         this.loginForm = this.formBuilder.group({
             username: ['', Validators.required],
             password: ['', Validators.required],
@@ -44,47 +42,22 @@ export class LoginComponent implements OnInit
         sessionStorage.setItem('privilege', '');
         localStorage.setItem('categorySelector', '1');
         localStorage.setItem("labs-deployed", '[]');
-        if (sessionStorage.getItem('theme')  === null){
+        if (sessionStorage.getItem('theme') === null) {
             sessionStorage.setItem('theme', 'light-theme.css');
         }
     }
 
-    onLogin()
-    {
+    onLogin() {
         this.isSubmitted = true;
         if (this.loginForm.invalid) {
             this.errormsg = true;
             return;
         }
-        this._authService.LoginSKFprovider(this.loginForm.value).subscribe(token =>
-        {
-            if (token['Authorization token']) {
-                var base64Url = token['Authorization token'].split('.')[1];  
-                var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-                var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
-                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-                }).join(''));
-                var values = JSON.parse(jsonPayload);
-                var priv = values['privilege'];
-                sessionStorage.setItem('privilege', priv);
-                sessionStorage.setItem('Authorization', token['Authorization token']);
-                // eslint-disable-next-line @typescript-eslint/dot-notation
-                sessionStorage.setItem('user', token['username']);
-                window.location.assign("/dashboard");
-            }
-        },
-            () => this.errormsg = true);
-    }
-
-    onSkip()
-    {
-        this.skip = true;
-        this._authService.LoginSkipprovider().subscribe(token =>
-            {
+        this._authService.LoginSKFprovider(this.loginForm.value).subscribe(token => {
                 if (token['Authorization token']) {
-                    var base64Url = token['Authorization token'].split('.')[1];  
+                    var base64Url = token['Authorization token'].split('.')[1];
                     var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-                    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+                    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
                         return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
                     }).join(''));
                     var values = JSON.parse(jsonPayload);
@@ -96,16 +69,35 @@ export class LoginComponent implements OnInit
                     window.location.assign("/dashboard");
                 }
             },
-                () => this.token);
+            () => this.errormsg = true);
     }
 
-    onRegister()
-    {
+    onSkip() {
+        this.skip = true;
+        this._authService.LoginSkipprovider().subscribe(token => {
+                if (token['Authorization token']) {
+                    var base64Url = token['Authorization token'].split('.')[1];
+                    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+                    var jsonPayload = decodeURIComponent(atob(base64).split('').map(function (c) {
+                        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                    }).join(''));
+                    var values = JSON.parse(jsonPayload);
+                    var priv = values['privilege'];
+                    sessionStorage.setItem('privilege', priv);
+                    sessionStorage.setItem('Authorization', token['Authorization token']);
+                    // eslint-disable-next-line @typescript-eslint/dot-notation
+                    sessionStorage.setItem('user', token['username']);
+                    window.location.assign("/dashboard");
+                }
+            },
+            () => this.token);
+    }
+
+    onRegister() {
         this.router.navigate(['/auth/register']);
     }
 
-    doBackdoor()
-    {
+    doBackdoor() {
         //eval()
         //system()
         //exec()

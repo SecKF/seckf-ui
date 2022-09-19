@@ -1,27 +1,25 @@
-import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Location } from '@angular/common';
+import {waitForAsync, ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {Router} from '@angular/router';
+import {Location} from '@angular/common';
 
-import { UserCreateComponent } from './create.component';
-import { ManageComponent } from '../manage/manage.component';
+import {UserCreateComponent} from './create.component';
+import {ManageComponent} from '../manage/manage.component';
 
-describe('UserCreateComponent', () =>
-{
+describe('UserCreateComponent', () => {
     let component: UserCreateComponent;
     let fixture: ComponentFixture<UserCreateComponent>;
     let router: Router;
     let location: Location;
 
-    beforeEach(async(() =>
-    {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule,
-                    RouterTestingModule.withRoutes([
-                        { path: 'users/manage', component: ManageComponent },
-                    ])],
+                RouterTestingModule.withRoutes([
+                    {path: 'users/manage', component: ManageComponent},
+                ])],
             declarations: [UserCreateComponent]
         })
             .compileComponents();
@@ -30,21 +28,18 @@ describe('UserCreateComponent', () =>
         router.initialNavigation();
     }));
 
-    beforeEach(() =>
-    {
+    beforeEach(() => {
         fixture = TestBed.createComponent(UserCreateComponent);
         component = fixture.componentInstance;
         component.ngOnInit();
         fixture.detectChanges();
     });
 
-    it('should create', () =>
-    {
+    it('should create', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should return true', () =>
-    {
+    it('should return true', () => {
         component.validSubmit();
         expect(component.submit).toBeTruthy();
     });
@@ -65,6 +60,6 @@ describe('UserCreateComponent', () =>
         let errors = {};
         errors = priviledge.errors || {};
         expect(errors['required']).toBeTruthy();
-      });
+    });
 
 });

@@ -1,11 +1,13 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject} from 'rxjs';
 
 @Injectable()
 export class ThemeService {
     themeStyle: string;
     public theme: BehaviorSubject<string> = new BehaviorSubject('');
-    constructor() {}
+
+    constructor() {
+    }
 
     editTheme(newTheme) {
         sessionStorage.removeItem('theme');

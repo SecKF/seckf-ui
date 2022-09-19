@@ -1,46 +1,43 @@
-
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {environment} from '../../../environments/environment';
+import {Observable} from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 
-export class LabService
-{
+export class LabService {
 
-  constructor(
-    private http: HttpClient,
-  ) { }
+    public authHeader = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': sessionStorage.getItem("Authorization")
+    });
 
-  public authHeader = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem("Authorization") });
+    constructor(
+        private http: HttpClient,
+    ) {
+    }
 
-  getLabs(): Observable<Object>
-  {
-    return this.http.get(environment.API_ENDPOINT + '/api/interactive_labs/items')
-  }
+    getLabs(): Observable<Object> {
+        return this.http.get(environment.API_ENDPOINT + '/api/interactive_labs/items')
+    }
 
-  deployLab(image_id: number): Observable<Object>
-  {
-    return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/deployments/${image_id}`, { headers: this.authHeader })
-  }
+    deployLab(image_id: number): Observable<Object> {
+        return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/deployments/${image_id}`, {headers: this.authHeader})
+    }
 
-  deleteLab(image_id: number): Observable<Object>
-  {
-    return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/delete-deployments/${image_id}`, { headers: this.authHeader })
-  }
+    deleteLab(image_id: number): Observable<Object> {
+        return this.http.get(environment.API_ENDPOINT + `/api/interactive_labs/delete-deployments/${image_id}`, {headers: this.authHeader})
+    }
 
-  getCodeLabs(code_type: string): Observable<Object>
-  {
-    return this.http.get(environment.API_ENDPOINT + `/api/code_review_labs/challenge/${code_type}`, { headers: this.authHeader })
-  }
+    getCodeLabs(code_type: string): Observable<Object> {
+        return this.http.get(environment.API_ENDPOINT + `/api/code_review_labs/challenge/${code_type}`, {headers: this.authHeader})
+    }
 
 
-  solveCodeReviewChallenge(code_id: number, solution_id: number): Observable<Object>
-  {
-    return this.http.get(environment.API_ENDPOINT + `/api/code_review_labs/solve_challenge/${code_id}/solution/${solution_id}`, { headers: this.authHeader })
-  }
+    solveCodeReviewChallenge(code_id: number, solution_id: number): Observable<Object> {
+        return this.http.get(environment.API_ENDPOINT + `/api/code_review_labs/solve_challenge/${code_id}/solution/${solution_id}`, {headers: this.authHeader})
+    }
 
 }

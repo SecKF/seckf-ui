@@ -36,4 +36,4 @@ const projectData = [
     },
 ];
 
-export { projectData };
+export {projectData};

@@ -1,17 +1,15 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {waitForAsync, ComponentFixture, TestBed} from '@angular/core/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { UserUpdateComponent } from './update.component';
+import {UserUpdateComponent} from './update.component';
 
-describe('UserUpdateComponent', () =>
-{
+describe('UserUpdateComponent', () => {
     let component: UserUpdateComponent;
     let fixture: ComponentFixture<UserUpdateComponent>;
 
-    beforeEach(async(() =>
-    {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule, RouterTestingModule],
             declarations: [UserUpdateComponent]
@@ -19,16 +17,14 @@ describe('UserUpdateComponent', () =>
             .compileComponents();
     }));
 
-    beforeEach(() =>
-    {
+    beforeEach(() => {
         fixture = TestBed.createComponent(UserUpdateComponent);
         component = fixture.componentInstance;
         component.ngOnInit();
         fixture.detectChanges();
     });
 
-    it('should create', () =>
-    {
+    it('should create', () => {
         expect(component).toBeTruthy();
     });
 });

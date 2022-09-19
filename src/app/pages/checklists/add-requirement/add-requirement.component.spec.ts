@@ -1,13 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { AddRequirementComponent } from './add-requirement.component';
-
 /**
-describe('AddChecklistComponent', () => {
+ describe('AddChecklistComponent', () => {
   let component: AddChecklistComponent;
   let fixture: ComponentFixture<AddChecklistComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ AddChecklistComponent ]
     })
@@ -24,4 +20,4 @@ describe('AddChecklistComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-*/
+ */

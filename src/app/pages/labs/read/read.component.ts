@@ -1,20 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-read',
-  templateUrl: './read.component.html',
-  styleUrls: ['./read.component.scss']
+    selector: 'app-read',
+    templateUrl: './read.component.html',
+    styleUrls: ['./read.component.scss']
 })
 export class LabReadComponent implements OnInit {
 
-  // Bread crumb item
-  breadCrumbItems: Array<{}>;
+    // Bread crumb item
+    breadCrumbItems: Array<{}>;
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit(): void {
-    this.breadCrumbItems = [{ label: 'Labs' }, { label: 'Read', active: true }];
+    ngOnInit(): void {
+        this.breadCrumbItems = [{label: 'Labs'}, {label: 'Read', active: true}];
 
-  }
+    }
 
 }

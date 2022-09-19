@@ -1,4 +1,4 @@
-// import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+// import { TestBed, waitForAsync, ComponentFixture } from '@angular/core/testing';
 // import { BrowserModule, By } from '@angular/platform-browser';
 // import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { DebugElement } from '@angular/core';
@@ -11,7 +11,7 @@
 //     let de: DebugElement;
 //     let el: HTMLElement;
 
-//     beforeEach(async(() => {
+//     beforeEach(waitForAsync(() => {
 //       TestBed.configureTestingModule({
 //         imports: [
 //             LoginComponent
@@ -29,7 +29,7 @@
 //       });
 //     }));
 
-//     it('should call the onLogin method', async(() => {
+//     it('should call the onLogin method', waitForAsync(() => {
 //         fixture.detectChanges();
 //         spyOn(comp, 'onLogin');
 //         el = fixture.debugElement.query(By.css('button'))

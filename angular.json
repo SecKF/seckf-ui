@@ -123,9 +123,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/assets/scss/highlight.js/scss/github.scss",
-              "src/assets/scss/highlight.js/scss/monokai-sublime.scss"
+              "src/styles.scss"
             ],
             "scripts": []
           }

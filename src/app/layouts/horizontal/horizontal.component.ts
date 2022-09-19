@@ -1,9 +1,9 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 'app-horizontal',
-  templateUrl: './horizontal.component.html',
-  styleUrls: ['./horizontal.component.scss']
+    selector: 'app-horizontal',
+    templateUrl: './horizontal.component.html',
+    styleUrls: ['./horizontal.component.scss']
 })
 
 /**
@@ -11,13 +11,14 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
  */
 export class HorizontalComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+    constructor() {
+    }
 
-  ngOnInit() {
-    document.body.setAttribute('data-layout', 'horizontal');
-    document.body.setAttribute('data-topbar', 'dark');
-  }
+    ngOnInit() {
+        document.body.setAttribute('data-layout', 'horizontal');
+        document.body.setAttribute('data-topbar', 'dark');
+    }
 
-  ngAfterViewInit() {
-  }
+    ngAfterViewInit() {
+    }
 }

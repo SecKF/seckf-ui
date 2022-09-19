@@ -1,25 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-openid',
-  templateUrl: './openid.component.html',
-  styleUrls: ['./openid.component.scss']
+    selector: 'app-openid',
+    templateUrl: './openid.component.html',
+    styleUrls: ['./openid.component.scss']
 })
-export class OpenidComponent implements OnInit
-{
+export class OpenidComponent implements OnInit {
 
-  year: number = new Date().getFullYear();
+    year: number = new Date().getFullYear();
 
-  constructor(private router: Router) { }
+    constructor(private router: Router) {
+    }
 
-  ngOnInit(): void
-  {
-  }
+    ngOnInit(): void {
+    }
 
-  onRegister()
-  {
-    this.router.navigate(['/auth/register']);
-  }
+    onRegister() {
+        this.router.navigate(['/auth/register']);
+    }
 
 }

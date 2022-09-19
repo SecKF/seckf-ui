@@ -1,5 +1,5 @@
 /*
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HorizontaltopbarComponent } from './horizontaltopbar.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
@@ -10,7 +10,7 @@ describe('HorizontaltopbarComponent', () =>
   let component: HorizontaltopbarComponent;
   let fixture: ComponentFixture<HorizontaltopbarComponent>;
 
-  beforeEach(async(() =>
+  beforeEach(waitForAsync(() =>
   {
     TestBed.configureTestingModule({
       imports: [RouterTestingModule, HttpClientTestingModule, JoyrideService],

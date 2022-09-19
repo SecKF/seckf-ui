@@ -1,18 +1,16 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import {waitForAsync, ComponentFixture, TestBed} from '@angular/core/testing';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
-import { StringFilterPipe } from '../../../core/pipes/stringfilter.pipe'
-import { ManageComponent } from './manage.component';
+import {StringFilterPipe} from '../../../core/pipes/stringfilter.pipe'
+import {ManageComponent} from './manage.component';
 
-describe('ManageComponent', () =>
-{
+describe('ManageComponent', () => {
     let component: ManageComponent;
     let fixture: ComponentFixture<ManageComponent>;
 
-    beforeEach(async(() =>
-    {
+    beforeEach(waitForAsync(() => {
         TestBed.configureTestingModule({
             imports: [ReactiveFormsModule, FormsModule, HttpClientTestingModule, RouterTestingModule],
             declarations: [ManageComponent, StringFilterPipe]
@@ -20,37 +18,31 @@ describe('ManageComponent', () =>
             .compileComponents();
     }));
 
-    beforeEach(() =>
-    {
+    beforeEach(() => {
         fixture = TestBed.createComponent(ManageComponent);
         component = fixture.componentInstance;
         component.ngOnInit();
         fixture.detectChanges();
     });
 
-    it('should create', () =>
-    {
+    it('should create', () => {
         expect(component).toBeTruthy();
     });
 
-    it('should valid submit', () =>
-    {
+    it('should valid submit', () => {
         component.validSubmit();
         expect(component.submit).toBeTruthy();
     });
 
-    it('should grant user', () =>
-    {
+    it('should grant user', () => {
         component.accountUserGrant(1);
     });
 
-    it('should revoke user', () =>
-    {
+    it('should revoke user', () => {
         component.accountUserRevoke(1);
     });
 
-    it('should give access', () =>
-    {
+    it('should give access', () => {
         component.accountUserPrivilege('admin', 1);
     });
 });

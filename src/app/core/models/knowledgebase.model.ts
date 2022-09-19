@@ -1,5 +1,4 @@
-export class Knowledgebase
-{
+export class Knowledgebase {
     constructor(
         id?: number,
         title?: string,
@@ -9,5 +8,6 @@ export class Knowledgebase
         text?: string,
         subtext?: string,
         platform?: string,
-    ) { }
+    ) {
+    }
 }

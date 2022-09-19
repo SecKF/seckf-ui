@@ -1,17 +1,14 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
     name: 'labelfilter'
 })
-export class LabelFilterPipe implements PipeTransform
-{
+export class LabelFilterPipe implements PipeTransform {
 
-    transform(items: any[], args: any[]): any
-    {
+    transform(items: any[], args: any[]): any {
         if (args && args.length > 0) {
             return items.filter(item => args.indexOf(item.label) >= 0);
-        }
-        else {
+        } else {
             return items;
         }
     }
